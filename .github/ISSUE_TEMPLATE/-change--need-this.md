@@ -1,7 +1,7 @@
 ---
 name: "[CHANGE] need this"
 about: Describe this issue template's purpose here.
-title: ''
+title: "[CHANGE] need this"
 labels: ''
 assignees: ''
 
