@@ -1,0 +1,32 @@
+{
+	"name": "memory_log-server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon app.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Kyung-Douhyun/Memory_log-server.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Kyung-Douhyun/Memory_log-server/issues"
+	},
+	"homepage": "https://github.com/Kyung-Douhyun/Memory_log-server#readme",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"eslint": "^7.4.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"nodemon": "^2.0.4",
+		"prettier": "^2.0.5",
+		"prettier-eslint": "^11.0.0",
+		"prettier-eslint-cli": "^5.0.0"
+	}
+}
