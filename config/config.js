@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
 	"development": {
 		"username": "root",
 		"password": process.env.PASSWORD,
@@ -14,4 +14,3 @@ module.export = {
 		"dialect": "mysql"
 	}
 }
-;
