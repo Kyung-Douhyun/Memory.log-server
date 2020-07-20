@@ -1,4 +1,18 @@
 const { User } = require('../../models/');
+const express = require('express');
+// const redis = require('redis');
+// const JWTR = require('jwt-redis').default;
+
+const redisClient = redis.createClient();
+const jwtr = new JWTR(redisClient);
+
+const secret = 'secret';
+const jti = 'test';
+const payload = { jti };
+
+jwtr.sign(payload, secret).then(() => {
+	return jwtr.verify(token, secret);
+});
 
 module.exports = {
 	post: (req, res) => {
