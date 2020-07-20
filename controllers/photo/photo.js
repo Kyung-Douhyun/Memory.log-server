@@ -1,5 +1,3 @@
-const { Photo } = require('../../models/Photo')
+const { Photo } = require('../../models/Photo');
 
-module.exports = {
-
-}
+module.exports = {};
