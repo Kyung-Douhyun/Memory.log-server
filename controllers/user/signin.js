@@ -1,4 +1,4 @@
-const { User } = require('../../models/user');
+const { User } = require('../../models');
 
 module.exports = {
 	post: (req, res) => {
@@ -13,9 +13,7 @@ module.exports = {
 			if (!data) {
 				res.status(404).send('Invalid user'); // 그런 회원정보가 없다면 404 에러 날려줌
 			} else {
-				req.session.userid = data.id; // 회원정보가 일치한다면 사용자에게 세션아이디를 보내주는 부분
-				let result = { id: req.session.userid };
-				res.status(200).send(result);
+				res.status(200).send('OK');
 			}
 		});
 	},
