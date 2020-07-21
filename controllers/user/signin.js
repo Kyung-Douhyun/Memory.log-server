@@ -1,4 +1,19 @@
-const { User } = require('../../models');
+const { User } = require('../../models/');
+const express = require('express');
+const jwt = require('jsonwebtoken');
+// const redis = require('redis');
+// const JWTR = require('jwt-redis').default;
+
+// const redisClient = redis.createClient();
+// const jwtr = new JWTR(redisClient);
+
+// const secret = 'secret';
+// const jti = 'test';
+// const payload = { jti };
+
+// jwtr.sign(payload, secret).then(() => {
+// 	return jwtr.verify(token, secret);
+// });
 
 module.exports = {
 	post: (req, res) => {
@@ -13,7 +28,12 @@ module.exports = {
 			if (!data) {
 				res.status(404).send('Invalid user'); // 그런 회원정보가 없다면 404 에러 날려줌
 			} else {
-				res.status(200).send('OK');
+				const token = jwt.sign({ id: data.id, data: data.username }, '123');
+				console.log('username:', data.username);
+				console.log('token:', token);
+				const decoded = jwt.verify(token, '123');
+				console.log('decoded.id:', decoded.id);
+				res.status(200).send(token);
 			}
 		});
 	},
