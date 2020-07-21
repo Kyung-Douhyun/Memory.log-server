@@ -46,7 +46,7 @@ app.post('/upload', upload.single('img'), (req, res) => {
 		res.status(200).send(payLoad);
 	} catch (err) {
 		console.log(err);
-		response(res, 500, '서버 에러');
+		res.status(500).send('서버 에러');
 	}
 });
 
