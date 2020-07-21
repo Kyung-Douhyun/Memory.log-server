@@ -7,8 +7,13 @@ module.exports = {
 		const { username, email, password } = req.body;
 
 		User.findOrCreate({
-			where: { email }, // 이메일이 중복되는지만 확인함
-			defaults: { username, password },
+			where: {
+				email,
+			}, // 이메일이 중복되는지만 확인함
+			defaults: {
+				username,
+				password,
+			},
 		})
 			.then(([user, created]) => {
 				if (!created) {
