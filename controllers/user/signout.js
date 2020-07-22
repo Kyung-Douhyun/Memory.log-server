@@ -1,10 +1,17 @@
-const { User } = require('../../models/');
-//const redis = require('redis');
-const JWTR = require('jwt-redis').default;
 
 module.exports = {
-	get: (req, res) => {
-		JWTR.destroy(token);
-		console.log('destroyed');
+	post: (req, res) => {
+		const sess = req.session;
+		if (sess.userid) {
+			req.session.destroy(err => {
+				if (err) {
+					throw err;
+				} else {
+					res.send('successfully signed out!');
+				}
+			});
+		} else {
+			res.send('uh-oh');
+		}
 	},
 };
