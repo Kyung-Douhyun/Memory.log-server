@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const dotenv = require('dotenv');
 dotenv.config();
 const AWS = require('aws-sdk');
@@ -31,6 +32,17 @@ const photoRouter = require('./routes/photo');
 const userRouter = require('./routes/user');
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// use session with secret key
+app.use(
+	session({
+		secret: 'secretKey',
+		resave: false,
+		saveUninitialized: true,
+	}),
+);
 const port = process.env.PORT || 4000;
 
 app.use(cors());
