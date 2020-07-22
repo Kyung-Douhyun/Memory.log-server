@@ -3,7 +3,7 @@ const { User } = require('../../models'); // model쪽에 있는 users 테이블�
 module.exports = {
 	post: (req, res) => {
 		// TODO: 유저가 회원가입을 했을 떄, 회원정보를 DB에 담아주는 부분
-		// s사용자가 회원가입할 때 적어야 할 정보는 name, email, password -> 요청(req)의 body 부분에 담길 내용
+		// 사용자가 회원가입할 때 적어야 할 정보는 name, email, password -> 요청(req)의 body 부분에 담길 내용
 		const { username, email, password } = req.body;
 
 		User.findOrCreate({
