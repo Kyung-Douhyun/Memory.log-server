@@ -2,9 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+
 const dotenv = require('dotenv');
 dotenv.config();
 const AWS = require('aws-sdk');
+
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 AWS.config.update({
@@ -12,9 +14,7 @@ AWS.config.update({
 	secretAccessKey: process.env.AWS_KEY,
 	region: 'ap-northeast-2',
 });
-
 const s3 = new AWS.S3();
-
 const upload = multer({
 	storage: multerS3({
 		s3: s3,
