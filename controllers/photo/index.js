@@ -1,3 +1,3 @@
 module.exports = {
-	photo: require('./photo'),
+	sboard: require('./sboard'),
 };
