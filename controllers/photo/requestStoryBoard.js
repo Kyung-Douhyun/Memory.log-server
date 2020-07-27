@@ -2,17 +2,16 @@ const { Photo } = require('../../models');
 
 module.exports = {
 	post: (req, res) => {
-		// const { user } = req.session.userid;
+		const { userId } = req.session.userid;
 		Photo.findAll({
 			where: {
-				// userId: user,
+				userId,
 			},
 			order: [['createdAt', 'DESC']],
 		})
 			.then(photo => {
-				console.log(photo);
-				res.status(200).json(photo);
+				res.status(200).send(photo);
 			})
-			.catch(err => res.send(err));
+			.catch(err => res.status(500).send('서버 에러 :', err));
 	},
 };

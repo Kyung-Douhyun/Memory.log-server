@@ -1,3 +1,5 @@
 module.exports = {
-	sboard: require('./sboard'),
+	requestStoryBoard: require('./requestStoryBoard'),
+	updateDescription: require('./updateDescription'),
+	deletePhoto: require('./deletePhoto'),
 };
