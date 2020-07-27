@@ -9,15 +9,15 @@ module.exports = (sequelize, DataTypes) => {
 		 * This method is not a part of Sequelize lifecycle.
 		 * The `models/index` file will call this method automatically.
 		 */
-		static associate(models) {
-			models.User.hasMany(models.Photo);
-		}
+		static associate(models) {}
 	}
 	User.init(
 		{
 			username: DataTypes.STRING,
 			email: DataTypes.STRING,
 			password: DataTypes.STRING,
+			profilepath: DataTypes.STRING,
+			statusmessage: DataTypes.STRING,
 		},
 		{
 			sequelize,
@@ -26,26 +26,3 @@ module.exports = (sequelize, DataTypes) => {
 	);
 	return User;
 };
-
-// 'use strict';
-
-// module.exports = (sequelize, DataTypes) => {
-// 	const User = sequelize.define(
-// 		'User',
-// 		{
-// 			username: DataTypes.STRING,
-// 			email: DataTypes.STRING,
-// 			password: DataTypes.STRING,
-// 		},
-// 		{
-// 			charset: 'utf8',
-// 			collate: 'utf8_unicode_ci',
-// 		},
-// 	);
-
-// 	User.associate = function (models) {
-// 		models.User.hasMany(models.Photo);
-// 	};
-
-// 	return User;
-// };
