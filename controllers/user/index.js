@@ -1,5 +1,7 @@
 module.exports = {
-	signin: require('./signin'),
-	signup: require('./signup'),
-	signout: require('./signout'),
+	signIn: require('./signIn'),
+	signUp: require('./signUp'),
+	signOut: require('./signOut'),
+	getUserInfo: require('./getUserInfo'),
+	statusMessage: require('./statusMessage'),
 };
