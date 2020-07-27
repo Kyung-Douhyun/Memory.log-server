@@ -14,11 +14,11 @@ module.exports = {
 		})
 			.then(([user, created]) => {
 				if (!created) {
-					res.status(409).send('Existing user');
+					res.status(409).send('이미 존재하는 이메일입니다.');
 				}
 				const data = user.get({ plain: true });
-				res.status(200).json(data);
+				res.status(201).json(data);
 			})
-			.catch(err => res.send(err));
+			.catch(err => res.status(500).send(err));
 	},
 };
