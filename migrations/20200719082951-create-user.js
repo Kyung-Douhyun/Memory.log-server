@@ -17,6 +17,14 @@ module.exports = {
 			password: {
 				type: Sequelize.STRING,
 			},
+			profilepath: {
+				type: Sequelize.STRING,
+				defaultValue: './image/dafault_profile.jpg',
+			},
+			statusmessage: {
+				type: Sequelize.STRING,
+				defaultValue: '지금 어떠신가요...?',
+			},
 			createdAt: {
 				allowNull: false,
 				type: Sequelize.DATE,
