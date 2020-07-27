@@ -28,6 +28,7 @@ dotenv.config();
 
 const photoRouter = require('./routes/photo');
 const userRouter = require('./routes/user');
+const followRouter = require('./routes/follow');
 
 const app = express();
 app.use(express.json());
@@ -62,6 +63,7 @@ app.get('/', (req, res) => res.status(200).send('OK'));
 
 app.use('/photo', photoRouter);
 app.use('/user', userRouter);
+app.use('/follow', followRouter);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
