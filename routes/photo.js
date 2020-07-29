@@ -40,7 +40,7 @@ router.post('/upload', upload.single('img'), (req, res) => {
 		})
 			.then(async photo => {
 				const data = await photo.get({ plain: true });
-				res.status(200).send(data);
+				res.status(201).send(data);
 			})
 			.catch(err => res.status(500).send(err));
 	} catch (err) {

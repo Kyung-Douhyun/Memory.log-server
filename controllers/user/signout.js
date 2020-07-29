@@ -1,16 +1,11 @@
 module.exports = {
-	post: (req, res) => {
+	post: async (req, res) => {
 		const sess = req.session;
 		if (sess.userid) {
-			req.session
-				.destroy(err => {
-					if (err) {
-						throw err;
-					} else {
-						res.status(200).send('successfully signed out!');
-					}
-				})
-				.catch(err => res.status(500).send(err));
+			await req.session.destroy(err => {
+				if (err) throw new Error('session error');
+				res.status(200).send('successfully signed out!');
+			});
 		} else {
 			res.status(400).send("you're currently not logined");
 		}
