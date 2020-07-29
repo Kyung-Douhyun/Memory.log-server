@@ -71,6 +71,6 @@ app.use('/photo', photoRouter);
 app.use('/user', userRouter);
 app.use('/follow', followRouter);
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Memory.log Server app listening at http://localhost:${port}`));
 
 module.exports = app;
