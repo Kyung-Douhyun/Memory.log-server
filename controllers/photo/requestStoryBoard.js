@@ -5,13 +5,14 @@ module.exports = {
 		const { userId } = req.session.userid;
 		Photo.findAll({
 			where: {
-				userId,
+				// userId,
 			},
 			order: [['createdAt', 'DESC']],
 		})
 			.then(photo => {
-				res.status(200).send(photo);
+				// console.log(photo);
+				res.status(200).json(photo);
 			})
-			.catch(err => res.status(500).send('서버 에러 :', err));
+			.catch(err => res.send(err));
 	},
 };

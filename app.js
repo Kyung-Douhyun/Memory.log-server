@@ -44,7 +44,13 @@ app.use(
 );
 const port = process.env.PORT || 4000;
 
-app.use(cors());
+app.use(
+	cors({
+		origin: ['http://localhost:8081'],
+		methods: ['GET', 'POST', 'PUT'],
+		credentials: true,
+	}),
+);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
