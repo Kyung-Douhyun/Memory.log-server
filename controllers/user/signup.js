@@ -17,7 +17,8 @@ module.exports = {
 					res.status(409).send('이미 존재하는 이메일입니다.');
 				}
 				const data = user.get({ plain: true });
-				res.status(201).json(data);
+				console.log(data);
+				res.status(200).json(data);
 			})
 			.catch(err => res.status(500).send(err));
 	},

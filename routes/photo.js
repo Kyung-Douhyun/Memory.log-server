@@ -21,30 +21,31 @@ const upload = multer({
 	}),
 });
 
-router.post('/sboard', photoController.requestStoryBoard.post);
-router.post('/uboard', photoController.updateDescription.post);
-router.post('/dphoto', photoController.deletePhoto.post);
+router.post('/sboard', photoController.requestStoryBoard.post); // 유저의 스토리보드 요청
+router.post('/uboard', photoController.updateDescription.post); // 유저의 사진 디스크립션 업데이트
+router.post('/dphoto', photoController.deletePhoto.post); // 유저의 사진 삭제
 router.post('/upload', upload.single('img'), (req, res) => {
-	const { longitude, latitude, description } = req.body;
-	const { userId } = req.session.userid;
+	const { location, description } = req.body;
 	try {
-		// console.log('req.file: ', req.file);
-		let payLoad = { url: req.file.location };
+		console.log('req.file: ', req.file);
+		console.log('req.body: ', req.body);
+		console.log('req.session: ', req.session);
+		let payLoad = req.file;
 		Photo.create({
-			filepath: payLoad.url,
-			userId,
-			longitude,
-			latitude,
+			filepath: payLoad.location,
+			userId: req.session.userid,
+			longitude: location[0],
+			latitude: location[1],
 			description,
 		})
 			.then(async photo => {
 				const data = await photo.get({ plain: true });
-				res.status(200).json(data);
+				res.status(200).send(data);
 			})
-			.catch(err => res.status(500).send('서버 에러 :', err));
+			.catch(err => res.status(500).send(err));
 	} catch (err) {
 		console.log(err);
-		res.status(500).send('서버 에러 :', err);
+		res.status(500).send(err);
 	}
 });
 module.exports = router;

@@ -15,7 +15,7 @@ module.exports = {
 					// console.log('data:', data.id);
 					sess.userid = data.id;
 					sess.username = data.username;
-					// console.log('session:', sess);
+					console.log('session:', sess);
 					res.status(200).send(data);
 				}
 			})

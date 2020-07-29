@@ -7,7 +7,7 @@ module.exports = {
 					if (err) {
 						throw err;
 					} else {
-						res.send('successfully signed out!');
+						res.status(200).send('successfully signed out!');
 					}
 				})
 				.catch(err => res.status(500).send(err));
