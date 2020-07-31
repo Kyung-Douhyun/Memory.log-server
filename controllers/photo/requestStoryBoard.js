@@ -2,10 +2,9 @@ const { Photo } = require('../../models');
 
 module.exports = {
 	post: (req, res) => {
-		const { userId } = req.session.userid;
 		Photo.findAll({
 			where: {
-				// userId,
+				// userId: req.session.userid
 			},
 			order: [['createdAt', 'DESC']],
 		})

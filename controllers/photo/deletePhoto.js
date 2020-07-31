@@ -9,7 +9,6 @@ const s3 = new AWS.S3({
 module.exports = {
 	post: (req, res) => {
 		const { filepath } = req.body;
-		const { userId } = req.session.userid;
 		const url = filepath.split('/');
 		const key = url[url.length - 1];
 		const params = {
@@ -29,7 +28,7 @@ module.exports = {
 					.then(() =>
 						Photo.findAll({
 							where: {
-								userId,
+								userId: req.session.userid,
 							},
 						})
 							.then(photo => res.status(200).send(photo))

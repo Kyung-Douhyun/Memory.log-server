@@ -19,7 +19,8 @@ module.exports = {
 			},
 			profilepath: {
 				type: Sequelize.STRING,
-				defaultValue: './image/dafault_profile.jpg',
+				defaultValue:
+					'https://memory-log.s3.ap-northeast-2.amazonaws.com/%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3.jpeg',
 			},
 			statusmessage: {
 				type: Sequelize.STRING,

@@ -4,4 +4,5 @@ module.exports = {
 	signOut: require('./signOut'),
 	getUserInfo: require('./getUserInfo'),
 	statusMessage: require('./statusMessage'),
+	getLoginUserInfo: require('./getLoginUserInfo'),
 };

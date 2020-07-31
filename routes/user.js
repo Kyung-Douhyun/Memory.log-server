@@ -30,10 +30,11 @@ router.post('/signup', userController.signUp.post); // 회원가입
 router.post('/signin', userController.signIn.post); // 로그인
 router.post('/signout', userController.signOut.post); // 로구아웃
 router.post('/status', userController.statusMessage.post); //유저 상태메세지 변경
-router.get('/info', userController.getUserInfo.get); // email 기준 유저 정보
+router.post('/info', userController.getUserInfo.post); // email 기준 유저 정보
+router.post('/logininfo', userController.getLoginUserInfo.post); // userId 기준 유저 정보
 router.post('/profile', upload.single('img'), (req, res) => {
 	// 유저의 프로필 사진 변경
-	const { userId } = req.session.userid;
+	// const { userId } = req.session.userid;
 	try {
 		let payLoad = { url: req.file.location };
 		User.update(
@@ -42,11 +43,11 @@ router.post('/profile', upload.single('img'), (req, res) => {
 			},
 			{
 				where: {
-					id: userId,
+					id: req.session.userid,
 				},
 			},
 		)
-			.then(() => User.findOne({ where: { id: userId } }))
+			.then(() => User.findOne({ where: { id: req.session.userid } }))
 			.then(user => res.status(200).send(user))
 			.catch(err => res.send(err));
 	} catch (err) {

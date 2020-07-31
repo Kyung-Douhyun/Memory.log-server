@@ -3,18 +3,17 @@ const { User } = require('../../models');
 module.exports = {
 	post: (req, res) => {
 		const { statusMessage } = req.body;
-		const { userId } = req.session.userid;
 		User.update(
 			{
 				statusMessage,
 			},
 			{
 				where: {
-					id: userId,
+					id: req.session.userid,
 				},
 			},
 		)
-			.then(() => User.findOne({ where: { id: userId } }))
+			.then(() => User.findOne({ where: { id: req.session.userid } }))
 			.then(user => res.status(200).send(user))
 			.catch(err => res.status(500).send(err));
 	},

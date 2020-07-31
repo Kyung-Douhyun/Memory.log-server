@@ -27,9 +27,9 @@ router.post('/dphoto', photoController.deletePhoto.post); // 유저의 사진 �
 router.post('/upload', upload.single('img'), (req, res) => {
 	const { location, description } = req.body;
 	try {
-		console.log('req.file: ', req.file);
-		console.log('req.body: ', req.body);
-		console.log('req.session: ', req.session);
+		// console.log('req.file: ', req.file);
+		// console.log('req.body: ', req.body);
+		// console.log('req.session: ', req.session);
 		let payLoad = req.file;
 		Photo.create({
 			filepath: payLoad.location,
