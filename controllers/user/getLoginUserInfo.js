@@ -11,11 +11,7 @@ module.exports = {
 				if (!user) {
 					res.status(404).json('존재하지 않는 유저입니다.');
 				}
-<<<<<<< HEAD
 				res.status(200).send([user]);
-=======
-				res.status(200).send(user);
->>>>>>> 160f9e11ef01361d0f40de16d4de7c969038b0fb
 			})
 			.catch(err => res.status(500).send(err));
 	},
