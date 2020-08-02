@@ -9,8 +9,8 @@ module.exports = {
 			},
 			{
 				where: {
-					// id: req.session.userid,
-					id: 8,
+					id: req.session.userid,
+					// id: 8,
 				},
 			},
 		)
