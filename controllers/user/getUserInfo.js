@@ -2,10 +2,9 @@ const { User } = require('../../models');
 // email 주소를 기준으로 유저의 정보를 요청.
 module.exports = {
 	post: (req, res) => {
-		const { email } = req.body;
 		User.findOne({
 			where: {
-				email: email,
+				email: req.body.email,
 			},
 		})
 			.then(user => {

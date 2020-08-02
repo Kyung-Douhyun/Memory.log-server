@@ -3,10 +3,9 @@ const { User } = require('../../models');
 // follow 버튼을 눌렀을시, follow 요청.
 module.exports = {
 	post: (req, res) => {
-		const { email } = req.body; // test06@test.net
 		User.findOne({
 			where: {
-				email,
+				email: req.body.email,
 			},
 		})
 			.then(user => {
@@ -15,9 +14,8 @@ module.exports = {
 				} else {
 					Follow.findOrCreate({
 						where: {
-							userId: 1, // 현재 로그인 되어있는 유저.
-							// userId: req.session.userid,
-							followId: user.id, // 6
+							userId: req.session.userid,
+							followId: user.id,
 						},
 					})
 						.then(([list, created]) => {

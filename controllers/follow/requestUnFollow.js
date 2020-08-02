@@ -4,11 +4,9 @@ const { Follow } = require('../../models');
 module.exports = {
 	post: (req, res) => {
 		const { id } = req.body; // 3
-		// const { userid } = req.session; // 1
 		Follow.destroy({
 			where: {
-				// userId: userid,
-				userId: 1,
+				userId: req.session.userid,
 				followId: id,
 			},
 		})
@@ -19,7 +17,7 @@ module.exports = {
 				} else {
 					Follow.findAll({
 						where: {
-							userId: 1,
+							userId: req.session.userid,
 						},
 					})
 						.then(list => {

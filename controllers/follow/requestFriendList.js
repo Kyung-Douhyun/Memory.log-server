@@ -7,17 +7,17 @@ module.exports = {
 		const followerId = [];
 		Follow.findAll({
 			where: {
-				userId: 1, // 임시
-				// userId: req.session.userid,
+				userId: req.session.userid,
 			},
 		})
 			.then(list => {
-				if (!list) {
+				if (list.length === 0) {
 					res.status(404).send('친구가 없습니다...');
 				} else {
 					for (let ele of list) {
 						followerId.push(ele.followId);
 					}
+					console.log(followerId);
 					User.findAll({
 						where: {
 							id: {
@@ -26,7 +26,7 @@ module.exports = {
 						},
 					})
 						.then(followerList => {
-							// console.log(followerList);
+							console.log(followerList);
 							res.status(200).send(followerList);
 						})
 						.catch(err => res.status(500).send(err));
