@@ -14,7 +14,7 @@ module.exports = {
 		})
 			.then(([user, created]) => {
 				if (!created) {
-					res.status(409).send('이미 존재하는 이메일입니다.');
+					res.status(409).send('404 NOT FOUND');
 				}
 				const data = user.get({ plain: true });
 				console.log(data);

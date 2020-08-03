@@ -20,8 +20,8 @@ module.exports = {
 					},
 				})
 					.then(photo => res.status(200).json(photo))
-					.catch(err => res.status(500).send('서버 에러 :', err)),
+					.catch(err => res.status(500).send(err)),
 			)
-			.catch(err => res.status(500).send('서버 에러 :', err));
+			.catch(err => res.status(500).send(err));
 	},
 };

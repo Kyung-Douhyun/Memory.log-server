@@ -12,7 +12,7 @@ module.exports = {
 		})
 			.then(list => {
 				if (list.length === 0) {
-					res.status(404).send('친구가 없습니다...');
+					res.status(200).json([]);
 				} else {
 					for (let ele of list) {
 						followerId.push(ele.followId);
@@ -27,7 +27,7 @@ module.exports = {
 					})
 						.then(followerList => {
 							console.log(followerList);
-							res.status(200).send(followerList);
+							res.status(200).json(followerList);
 						})
 						.catch(err => res.status(500).send(err));
 				}

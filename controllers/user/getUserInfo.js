@@ -7,12 +7,7 @@ module.exports = {
 				email: req.body.email,
 			},
 		})
-			.then(user => {
-				if (!user) {
-					res.status(404).json('존재하지 않는 유저입니다.');
-				}
-				res.status(200).send(user);
-			})
+			.then(user => res.status(200).json(user))
 			.catch(err => res.status(500).send(err));
 	},
 };

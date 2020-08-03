@@ -10,7 +10,7 @@ module.exports = {
 		})
 			.then(user => {
 				if (!user) {
-					res.status(404).send('존재하지 않는 유저입니다.');
+					res.status(404).json('404 NOT FOUND');
 				} else {
 					Follow.findOrCreate({
 						where: {
@@ -20,7 +20,7 @@ module.exports = {
 					})
 						.then(([list, created]) => {
 							if (!created) {
-								res.status(409).send('이미 존재하는 요청입니다.');
+								res.status(409).json('CONFLICT');
 							} else {
 								res.status(201).send(list);
 							}

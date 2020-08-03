@@ -13,7 +13,7 @@ module.exports = {
 			.then(result => {
 				// console.log('삭제한 Follows 테이블 레코드 ID :', result);
 				if (!result) {
-					res.status(404).send('존재하지 않는 팔로워입니다.');
+					res.status(404).json('404 NOT FOUND');
 				} else {
 					Follow.findAll({
 						where: {
