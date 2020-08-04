@@ -19,7 +19,7 @@ module.exports = {
 			if (err) {
 				console.log(err + `AWS S3에서 filepath: ${filepath} 사진을 삭제하는데 실패하였습니다.`);
 			} else if (data) {
-				console.log(data);
+				// console.log(data);
 				Photo.destroy({
 					where: {
 						filepath,

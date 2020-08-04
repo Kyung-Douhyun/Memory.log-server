@@ -4,7 +4,7 @@ module.exports = {
 	post: (req, res) => {
 		Photo.findAll({
 			where: {
-				// userId: req.session.userid
+				userId: req.session.userid,
 			},
 			order: [['createdAt', 'DESC']],
 		})

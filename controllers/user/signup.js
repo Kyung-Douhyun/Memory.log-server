@@ -17,7 +17,7 @@ module.exports = {
 					res.status(409).send('404 NOT FOUND');
 				}
 				const data = user.get({ plain: true });
-				console.log(data);
+				// console.log(data);
 				res.status(200).json(data);
 			})
 			.catch(err => res.status(500).send(err));

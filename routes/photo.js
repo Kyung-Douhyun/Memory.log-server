@@ -22,6 +22,7 @@ const upload = multer({
 });
 
 router.post('/sboard', photoController.requestStoryBoard.post); // 유저의 스토리보드 요청
+router.post('/fboard', photoController.requestFriendStoryBoard.post); // 친구의 스토리보드 요청
 router.post('/uboard', photoController.updateDescription.post); // 유저의 사진 디스크립션 업데이트
 router.post('/dphoto', photoController.deletePhoto.post); // 유저의 사진 삭제
 router.post('/upload', upload.single('img'), (req, res) => {
