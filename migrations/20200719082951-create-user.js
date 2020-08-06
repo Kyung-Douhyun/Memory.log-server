@@ -24,7 +24,7 @@ module.exports = {
 			},
 			statusmessage: {
 				type: Sequelize.STRING,
-				defaultValue: '지금 어떠신가요...?',
+				defaultValue: '상태 메세지를 적어주세요.',
 			},
 			createdAt: {
 				allowNull: false,

@@ -2,7 +2,7 @@ const { User } = require('../../models');
 
 module.exports = {
 	post: (req, res) => {
-		const { username, email, password } = req.body;
+		const { username, email, password, profilepath } = req.body;
 		User.findOrCreate({
 			where: {
 				email,
@@ -10,11 +10,12 @@ module.exports = {
 			defaults: {
 				username,
 				password,
+				profilepath,
 			},
 		})
 			.then(([user, created]) => {
 				if (!created) {
-					res.status(409).send('404 NOT FOUND');
+					res.status(409).send('CONFLICT');
 				}
 				const data = user.get({ plain: true });
 				// console.log(data);
