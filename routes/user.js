@@ -30,7 +30,9 @@ router.post('/signup', userController.signUp.post); // 회원가입
 router.post('/signin', userController.signIn.post); // 로그인
 router.post('/signout', userController.signOut.post); // 로구아웃
 router.post('/status', userController.statusMessage.post); //유저 상태메세지 변경
+router.post('/username', userController.userName.post); //유저 상태메세지 변경
 router.post('/userinfo', userController.getUserInfo.post); // email 기준 유저 정보
+router.post('/userinfobyid', userController.getUserInfoById.post); // id 기준 유저 정보
 router.post('/logininfo', userController.getLoginUserInfo.post); // userId 기준 유저 정보
 router.post('/profile', upload.single('img'), (req, res) => {
 	// 유저의 프로필 사진 변경
@@ -51,8 +53,8 @@ router.post('/profile', upload.single('img'), (req, res) => {
 			.then(user => res.status(200).send(user))
 			.catch(err => res.send(err));
 	} catch (err) {
-		console.log(err);
-		res.status(500).send('서버 에러');
+		// console.log(err);
+		res.status(500).send(OverconstrainedError);
 	}
 });
 module.exports = router;

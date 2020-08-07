@@ -20,7 +20,6 @@ module.exports = {
 						order: [['createdAt', 'DESC']],
 					})
 						.then(photo => {
-							console.log(photo);
 							res.status(200).json(photo);
 						})
 						.catch(err => res.status(500).send(err));
