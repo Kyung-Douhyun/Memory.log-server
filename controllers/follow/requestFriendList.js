@@ -26,7 +26,8 @@ module.exports = {
 						},
 					})
 						.then(followerList => {
-							res.status(200).json(followerList);
+							// console.log(followerList);
+							res.status(200).send(followerList);
 						})
 						.catch(err => res.status(500).send(err));
 				}

@@ -20,7 +20,7 @@ module.exports = {
 					})
 						.then(([list, created]) => {
 							if (!created) {
-								res.status(409).json('CONFLICT');
+								res.status(409).send('CONFLICT');
 							} else {
 								res.status(201).send(list);
 							}

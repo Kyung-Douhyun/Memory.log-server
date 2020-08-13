@@ -7,7 +7,7 @@ module.exports = {
 				id: req.body.id,
 			},
 		})
-			.then(user => res.status(200).json(user))
+			.then(user => res.status(200).send(user))
 			.catch(err => res.status(500).send(err));
 	},
 };

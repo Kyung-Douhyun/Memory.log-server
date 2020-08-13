@@ -19,7 +19,7 @@ module.exports = {
 						filepath,
 					},
 				})
-					.then(photo => res.status(200).json(photo))
+					.then(photo => res.status(200).send(photo))
 					.catch(err => res.status(500).send(err)),
 			)
 			.catch(err => res.status(500).send(err));

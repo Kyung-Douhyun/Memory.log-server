@@ -9,7 +9,7 @@ module.exports = {
 		})
 			.then(user => {
 				if (!user) {
-					res.status(404).json('404 NOT FOUND');
+					res.status(404).send('404 NOT FOUND');
 				}
 				res.status(200).send([user]);
 			})
